@@ -8,10 +8,16 @@ const ListHotspot = memo(({ dataSource, deleteItem }) => (
   <Card title="Hotspot - List">
     <ListHotspotWrapper>
       {dataSource.map(item => (
-        <div className="item" key={item.key} role="presentation" onClick={() => deleteItem(item.key)}>
-          <strong>{item.titulo}</strong>
+        <div className="item" key={item.key}>
+          <div>
+            <strong>{item.titulo}</strong>
+            {' '}
+            -
+            {' '}
+            {item.mensagem}
+          </div>
           <Tooltip title="Excluir">
-            <i className="fas fa-times" />
+            <i className="fas fa-times" role="presentation" onClick={() => deleteItem(item.key)} />
           </Tooltip>
         </div>
       ))}
